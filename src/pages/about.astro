@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 const pageTitle = "关于";
 
 const identity = {
@@ -8,16 +9,39 @@ const identity = {
   hobbies: ["阅读", "编程", "音乐", "动漫"],
 };
 
-const skills = [
-  { name: "后端：Node.js", level: "熟悉（有工程使用经验）" },
-  { name: "后端：Golang", level: "熟练" },
-  { name: "后端：Express / Koa", level: "熟悉" },
-  { name: "数据库：MySQL / PostgreSQL / MongoDB", level: "熟悉" },
-  { name: "容器与 CI/CD：Docker、GitHub Actions", level: "熟悉" },
-  { name: "前端：HTML / CSS / JavaScript", level: "熟练" },
-  { name: "前端框架：Astro / React / Vite", level: "接触" },
-  { name: "测试与质量：Jest、集成测试", level: "接触" },
-  { name: "工具：Git、Linux、监控与调试", level: "熟练" },
+const skillCategories = [
+  {
+    category: "后端",
+    skills: [
+      { name: "Node.js", level: "熟悉" },
+      { name: "Golang", level: "熟练" },
+      { name: "Python", level: "熟悉" },
+    ],
+  },
+  {
+    category: "数据库",
+    skills: [
+      { name: "MySQL", level: "熟悉" },
+      { name: "PostgreSQL", level: "熟悉" },
+      { name: "MongoDB", level: "熟悉" },
+    ],
+  },
+  {
+    category: "前端",
+    skills: [
+      { name: "HTML / CSS / JavaScript", level: "熟悉" },
+      { name: "Astro", level: "接触" },
+      { name: "React", level: "接触" },
+    ],
+  },
+  {
+    category: "DevOps / 工具",
+    skills: [
+      { name: "Docker", level: "熟悉" },
+      { name: "GitHub Actions / CI/CD", level: "熟悉" },
+      { name: "Git / Linux / 监控调试", level: "熟练" },
+    ],
+  },
 ];
 
 // 使用更有意义的状态对象，便于演示条件渲染
@@ -32,6 +56,10 @@ const recentPosts = [
   { title: "进阶：静态页面优化与功能完善", slug: "/posts/post-2/" },
   { title: "未来展望：深度探索 Astro 动态特性", slug: "/posts/post-3/" },
 ];
+
+const skillColor = "#0066cc";
+const fontWeight = "600";
+const textCase = "none";
 ---
 
 <html lang="en">
@@ -41,6 +69,57 @@ const recentPosts = [
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
+      h1 {
+        color: #000;
+        font-size: 2.8rem;
+        text-align: left;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+      .skill-categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 1rem 0;
+      }
+      .skill-category {
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        padding: 1.2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+      .skill-category h4 {
+        margin: 0 0 0.8rem 0;
+        color: var(--skillColor);
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-bottom: 2px solid var(--skillColor);
+        padding-bottom: 0.5rem;
+      }
+      .skill-item {
+        margin: 0.6rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.4rem 0;
+      }
+      .skill-item-name {
+        font-weight: 500;
+        color: #333;
+      }
+      .skill-level {
+        display: inline-block;
+        background: #f0f0f0;
+        color: #666;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+    </style>
   </head>
   <body>
     <a href="/">首页</a>
@@ -56,15 +135,21 @@ const recentPosts = [
     </p>
 
     <h3>技能</h3>
-    <ul>
+    <div class="skill-categories">
       {
-        skills.map((s) => (
-          <li>
-            <strong>{s.name}</strong>：{s.level}
-          </li>
+        skillCategories.map((cat) => (
+          <div class="skill-category">
+            <h4>{cat.category}</h4>
+            {cat.skills.map((skill) => (
+              <div class="skill-item">
+                <span class="skill-item-name">{skill.name}</span>
+                <span class="skill-level">{skill.level}</span>
+              </div>
+            ))}
+          </div>
         ))
       }
-    </ul>
+    </div>
 
     <h3>兴趣</h3>
     <p>我的爱好包括：{identity.hobbies.join("、")}。</p>
