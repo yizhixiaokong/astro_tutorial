@@ -1,5 +1,5 @@
 ---
-
+const pageTitle = "博客";
 ---
 
 <html lang="en">
@@ -8,27 +8,27 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>博客 - Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">首页</a>
     <a href="/about/">关于</a>
     <a href="/blog/">博客</a>
 
-    <h1>我的博客</h1>
-    <h2>欢迎来到我的博客！</h2>
+    <h1>{pageTitle}</h1>
+    <h2>记录学习与项目笔记</h2>
 
     <p>
-      这里是我记录学习 Astro、前端开发和其它有趣内容的地方。
-      我会发布教程笔记、项目记录和随想，欢迎常来查看。
+      这里记录与 Astro、前端开发相关的笔记、教程和项目更新，欢迎订阅并留下反馈。
     </p>
 
+    <h3>文章列表</h3>
     <ul>
       <li><a href="/posts/post-1/">文章 1</a></li>
       <li><a href="/posts/post-2/">文章 2</a></li>
       <li><a href="/posts/post-3/">文章 3</a></li>
     </ul>
 
-    <p>若要返回，请使用上方导航链接查看首页或关于页。</p>
+    <p>返回首页或关于页了解更多信息。</p>
   </body>
 </html>

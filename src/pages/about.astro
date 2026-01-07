@@ -1,5 +1,36 @@
 ---
+const pageTitle = "关于";
 
+const identity = {
+  firstName: "小空",
+  country: "中国",
+  occupation: "后端工程师 / 前端爱好者",
+  hobbies: ["阅读", "编程", "音乐", "动漫"],
+};
+
+const skills = [
+  { name: "后端：Node.js", level: "熟悉（有工程使用经验）" },
+  { name: "后端：Golang", level: "熟练" },
+  { name: "后端：Express / Koa", level: "熟悉" },
+  { name: "数据库：MySQL / PostgreSQL / MongoDB", level: "熟悉" },
+  { name: "容器与 CI/CD：Docker、GitHub Actions", level: "熟悉" },
+  { name: "前端：HTML / CSS / JavaScript", level: "熟练" },
+  { name: "前端框架：Astro / React / Vite", level: "接触" },
+  { name: "测试与质量：Jest、集成测试", level: "接触" },
+  { name: "工具：Git、Linux、监控与调试", level: "熟练" },
+];
+
+// 使用更有意义的状态对象，便于演示条件渲染
+const status = {
+  openToCollab: true,
+  learningProgress: 0.45, // 小数表示进度（0-1）
+};
+
+// 最近的文章，用于条件渲染示例
+const recentPosts = [
+  { title: "开始学习 Astro", slug: "/posts/post-1/" },
+  { title: "项目配置心得", slug: "/posts/post-2/" },
+];
 ---
 
 <html lang="en">
@@ -8,23 +39,54 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">首页</a>
     <a href="/about/">关于</a>
     <a href="/blog/">博客</a>
-    <h1>我的 Astro 网站</h1>
-    <h1>关于我</h1>
-    <h2>……和我的新 Astro 网站！</h2>
+    <h1>{pageTitle}</h1>
+    <h2>关于我与本项目</h2>
 
     <p>
-      我正在学习 Astro
-      的入门教程。这是我网站上的关于页面，介绍了我和项目背景。
+      我是 {identity.firstName}，来自 {identity.country}，职业：{
+        identity.occupation
+      }。本站用于记录我的学习笔记、项目实践与个人想法。
     </p>
 
-    <p>
-      随着我完成更多教程，该站点将更新，所以请继续查看我的旅程将如何进行吧！
-    </p>
+    <h3>技能</h3>
+    <ul>
+      {
+        skills.map((s) => (
+          <li>
+            <strong>{s.name}</strong>：{s.level}
+          </li>
+        ))
+      }
+    </ul>
+
+    <h3>兴趣</h3>
+    <p>我的爱好包括：{identity.hobbies.join("、")}。</p>
+
+    {status.openToCollab && (
+      <p>我愿意合作开发小型项目，欢迎通过 GitHub 与我联系讨论合作想法。</p>
+    )}
+
+    <p>当前学习进度：{Math.round(status.learningProgress * 100)}%</p>
+
+    {recentPosts.length ? (
+      <div>
+        <h3>最新文章</h3>
+        <ul>
+          {recentPosts.map((p) => (
+            <li><a href={p.slug}>{p.title}</a></li>
+          ))}
+        </ul>
+      </div>
+    ) : (
+      <p>尚无文章，敬请期待。</p>
+    )}
+
+    <p>站点会随着我的学习与项目进展持续更新，欢迎通过 GitHub 与我交流。</p>
   </body>
 </html>
