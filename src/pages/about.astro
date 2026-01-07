@@ -28,8 +28,9 @@ const status = {
 
 // 最近的文章，用于条件渲染示例
 const recentPosts = [
-  { title: "开始学习 Astro", slug: "/posts/post-1/" },
-  { title: "项目配置心得", slug: "/posts/post-2/" },
+  { title: "初探 Astro：从模板到基础导航", slug: "/posts/post-1/" },
+  { title: "进阶：静态页面优化与功能完善", slug: "/posts/post-2/" },
+  { title: "未来展望：深度探索 Astro 动态特性", slug: "/posts/post-3/" },
 ];
 ---
 
@@ -68,24 +69,30 @@ const recentPosts = [
     <h3>兴趣</h3>
     <p>我的爱好包括：{identity.hobbies.join("、")}。</p>
 
-    {status.openToCollab && (
-      <p>我愿意合作开发小型项目，欢迎通过 GitHub 与我联系讨论合作想法。</p>
-    )}
+    {
+      status.openToCollab && (
+        <p>我愿意合作开发小型项目，欢迎通过 GitHub 与我联系讨论合作想法。</p>
+      )
+    }
 
     <p>当前学习进度：{Math.round(status.learningProgress * 100)}%</p>
 
-    {recentPosts.length ? (
-      <div>
-        <h3>最新文章</h3>
-        <ul>
-          {recentPosts.map((p) => (
-            <li><a href={p.slug}>{p.title}</a></li>
-          ))}
-        </ul>
-      </div>
-    ) : (
-      <p>尚无文章，敬请期待。</p>
-    )}
+    {
+      recentPosts.length ? (
+        <div>
+          <h3>最新文章</h3>
+          <ul>
+            {recentPosts.map((p) => (
+              <li>
+                <a href={p.slug}>{p.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p>尚无文章，敬请期待。</p>
+      )
+    }
 
     <p>站点会随着我的学习与项目进展持续更新，欢迎通过 GitHub 与我交流。</p>
   </body>

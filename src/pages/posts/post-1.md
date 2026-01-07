@@ -1,28 +1,25 @@
 ---
-title: '我的第一篇博客文章'
-pubDate: 2022-07-01
-description: '这是我 Astro 博客的第一篇文章。'
-author: 'Astro 学习者'
+title: '初探 Astro：从模板到基础导航'
+pubDate: 2026-01-07
+description: '记录 Astro 教程的初始设置和基本的页面/导航构建过程。'
+author: '小空'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'The Astro logo on a dark background with a pink glow.'
-tags: ["astro", "blogging", "learning in public"]
+    alt: 'Astro 标志'
+tags: ["astro", "基础", "导航"]
 ---
 
-# 我的第一篇博客文章
+# 初探 Astro：从模板到基础导航
 
- 发表于：2022-07-01
+今天开始了 Astro 的学习之旅。
 
- 欢迎来到我学习关于 Astro 的新博客！在这里，我将分享我建立新网站的学习历程。
+## 初始提交与模板
+首先使用了 Astro 官方的教程模板进行了初始化提交（\`chore: 初始提交 — 添加 Astro 教程模板文件\`）。这一步构建了项目的骨架。
 
- ## 我做了什么
+## 建立基础页面与导航
+随后，我创建了最重要的三个基础页面：
+- **首页** (\`index.astro\`)
+- **关于页** (\`about.astro\`)
+- **博客页** (\`blog.astro\`)
 
- 1. **安装 Astro**：首先，我创建了一个新的 Astro 项目并设置好了我的在线账号。
-
- 2. **制作页面**：然后我学习了如何通过创建新的 `.astro` 文件并将它们保存在 `src/pages/` 文件夹里来制作页面。
-
- 3. **发表博客文章**：这是我的第一篇博客文章！我现在有用 Astro 编写的页面和用 Markdown 写的文章了！
-
- ## 下一步计划
-
- 我将完成 Astro 教程，然后继续编写更多内容。关注我以获取更多信息。
+并为它们添加了初步的导航链接（\`feat: 添加关于页与博客页，并更新首页导航链接\`）。现在我可以顺畅地在不同页面间跳转了。
