@@ -54,6 +54,16 @@ a:hover {
   text-decoration: underline;
 }
 
+/* 导航链接不显示 text-decoration underline */
+.nav-links a:hover {
+  text-decoration: none;
+}
+
+/* footer 链接不显示 text-decoration underline */
+footer a:hover {
+  text-decoration: none;
+}
+
 ul, ol {
   margin: 0.8rem 0;
   padding-left: 1.5rem;
@@ -62,4 +72,45 @@ ul, ol {
 li {
   margin: 0.4rem 0;
   color: #555;
+}
+
+/* 导航样式 */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nav-links a {
+  color: #333;
+  font-weight: 500;
+  border-bottom: 1px solid #e5e5e5;
+  transition: all 0.2s ease;
+  padding: 0.8rem 0;
+  text-align: left;
+}
+
+.nav-links a:hover {
+  background-color: #f0f0f0;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+/* 大屏幕：水平布局 */
+@media screen and (min-width: 768px) {
+  .nav-links {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    border-bottom: 2px solid transparent;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .nav-links a:hover {
+    background-color: transparent;
+    border-bottom-color: #0066cc;
+  }
 }
