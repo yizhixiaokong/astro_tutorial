@@ -1,10 +1,15 @@
 ---
+import Menu from './Menu.astro';
 import Navigation from "./Navigation.astro";
 ---
 
-<header>
-  <nav>
-    <Navigation />
+<header id="site-header">
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">Kong's Blog</div>
+      <Menu />
+      <Navigation />
+    </div>
   </nav>
 </header>
 
@@ -12,12 +17,58 @@ import Navigation from "./Navigation.astro";
   header {
     background-color: #fff;
     border-bottom: 1px solid #e5e5e5;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-radius: 0 0 8px 8px;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    padding: 0;
   }
-  nav {
+
+  header.scrolled {
+    opacity: 0.92;
+    margin: 1rem auto 0 auto;
+    border-radius: 0 0 6px 6px;
+    width: 90%;
+    max-width: 70ch;
+    top: 0.5rem;
+  }
+
+  header.scrolled .navbar {
+    padding: 0;
+  }
+
+  header.scrolled .nav-container {
+    padding: 0.5rem 1rem;
+  }
+
+  header.scrolled .nav-brand {
+    font-size: 1.25rem;
+  }
+
+  .navbar {
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-container {
     max-width: 80ch;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0066cc;
+    text-decoration: none;
+    margin: 0;
+    transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 </style>

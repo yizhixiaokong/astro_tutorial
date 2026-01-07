@@ -1,6 +1,7 @@
 html {
   background-color: #fafafa;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   color: #333;
 }
 
@@ -54,17 +55,13 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 导航链接不显示 text-decoration underline */
-.nav-links a:hover {
-  text-decoration: none;
-}
-
 /* footer 链接不显示 text-decoration underline */
 footer a:hover {
   text-decoration: none;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 0.8rem 0;
   padding-left: 1.5rem;
 }
@@ -74,43 +71,149 @@ li {
   color: #555;
 }
 
-/* 导航样式 */
-.nav-links {
+.menu-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-button:hover,
+.menu-button:focus {
+  background-color: rgba(0, 102, 204, 0.1);
+  outline: none;
+}
+
+.menu-button:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.menu-icon {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 4px;
+  width: 24px;
 }
 
-.nav-links a {
+.menu-line {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background-color: #333;
+  border-radius: 1px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* 菜单打开时的动画效果 */
+.menu-button[aria-expanded="true"] .menu-line:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.menu-button[aria-expanded="true"] .menu-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button[aria-expanded="true"] .menu-line:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* 导航菜单样式 */
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-link {
   color: #333;
   font-weight: 500;
-  border-bottom: 1px solid #e5e5e5;
-  transition: all 0.2s ease;
-  padding: 0.8rem 0;
-  text-align: left;
+  padding: 0.75rem 1rem;
+  border: none;
+  display: block;
+  transition: background-color 0.2s ease, color 0.2s ease, border-radius 0.2s ease;
+  text-decoration: none !important;
+  position: relative;
+  margin: 0 0.5rem;
+  border-radius: 6px;
 }
 
-.nav-links a:hover {
+.nav-link:hover,
+.nav-link:focus {
   background-color: #f0f0f0;
   color: #0066cc;
-  text-decoration: none;
+  outline: none;
 }
 
-/* 大屏幕：水平布局 */
+.nav-link:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: -2px;
+}
+
+/* 菜单打开时显示导航菜单 */
+.menu-button[aria-expanded="true"] ~ .nav-menu {
+  display: flex;
+}
+
+/* 大屏幕(>=768px)：水平导航栏 */
 @media screen and (min-width: 768px) {
-  .nav-links {
+  .menu-button {
+    display: none !important;
+  }
+
+  .nav-menu {
+    display: flex !important;
     flex-direction: row;
-    gap: 1.5rem;
-  }
-  
-  .nav-links a {
-    border-bottom: 2px solid transparent;
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
     padding: 0;
-    text-align: left;
+    margin: 0;
+    gap: 2rem;
+    animation: none;
   }
-  
-  .nav-links a:hover {
-    background-color: transparent;
+
+  .nav-link {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    background: transparent !important;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    background: transparent;
     border-bottom-color: #0066cc;
   }
 }
