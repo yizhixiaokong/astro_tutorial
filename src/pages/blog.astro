@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+const allPosts = Object.values(
+  import.meta.glob("./posts/*.md", { eager: true })
+);
 const pageTitle = "博客";
 ---
 
@@ -12,9 +16,11 @@ const pageTitle = "博客";
 
   <h3>文章列表</h3>
   <ul>
-    <li><a href="/posts/post-1/">初探 Astro：从模板到基础导航</a></li>
-    <li><a href="/posts/post-2/">进阶：静态页面优化与功能完善</a></li>
-    <li><a href="/posts/post-3/">未来展望：深度探索 Astro 动态特性</a></li>
+    {
+      allPosts.map((post: any) => (
+        <BlogPost url={post.url} title={post.frontmatter.title} />
+      ))
+    }
   </ul>
 
   <p>返回首页或关于页了解更多信息。</p>

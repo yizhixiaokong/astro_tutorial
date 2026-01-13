@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
 const pageTitle = "关于";
+
+// 动态加载文章列表
+const allPosts = Object.values(
+  import.meta.glob("../pages/posts/*.md", { eager: true })
+);
+const recentPosts = [...allPosts].reverse().slice(0, 3); // 取最近的3篇（倒序）
 
 const identity = {
   firstName: "小空",
@@ -49,13 +56,6 @@ const status = {
   openToCollab: true,
   learningProgress: 0.45, // 小数表示进度（0-1）
 };
-
-// 最近的文章，用于条件渲染示例
-const recentPosts = [
-  { title: "初探 Astro：从模板到基础导航", slug: "/posts/post-1/" },
-  { title: "进阶：静态页面优化与功能完善", slug: "/posts/post-2/" },
-  { title: "未来展望：深度探索 Astro 动态特性", slug: "/posts/post-3/" },
-];
 
 const skillColor = "#0066cc";
 const fontWeight = "600";
@@ -155,10 +155,8 @@ const textCase = "none";
       <div>
         <h3>最新文章</h3>
         <ul>
-          {recentPosts.map((p) => (
-            <li>
-              <a href={p.slug}>{p.title}</a>
-            </li>
+          {recentPosts.map((p: any) => (
+            <BlogPost url={p.url} title={p.frontmatter.title} />
           ))}
         </ul>
       </div>
