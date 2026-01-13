@@ -1,0 +1,31 @@
+/* 基础重置和规范化 */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-bg-primary);
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--max-width-content);
+  padding: var(--spacing-xl) var(--spacing-md);
+  line-height: 1.6;
+}
+
+/* 暗黑模式背景强制应用 */
+html.dark {
+  background-color: var(--color-bg-primary) !important;
+  color: var(--color-text-primary) !important;
+}
+
+html.dark body {
+  background-color: var(--color-bg-primary) !important;
+  color: var(--color-text-primary) !important;
+}

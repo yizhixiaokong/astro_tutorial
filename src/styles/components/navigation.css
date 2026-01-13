@@ -1,0 +1,111 @@
+/* 导航相关样式 */
+
+/* 导航菜单样式 */
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-primary);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-sm) 0;
+  margin-top: var(--spacing-sm);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: slideDown var(--transition-normal);
+  min-width: 200px;
+  z-index: 50;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-link {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  padding: 0.75rem var(--spacing-md);
+  border: none;
+  display: block;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-radius var(--transition-fast);
+  text-decoration: none !important;
+  position: relative;
+  margin: 0 var(--spacing-sm);
+  border-radius: var(--radius-md);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--color-primary);
+  outline: none;
+}
+
+/* 小屏幕菜单展开时的hover效果 */
+.nav-right:has(.menu-button[aria-expanded="true"]) .nav-link:hover,
+.nav-right:has(.menu-button[aria-expanded="true"]) .nav-link:focus {
+  background-color: var(--color-bg-tertiary);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+/* 菜单打开时显示导航菜单 */
+.nav-right:has(.menu-button[aria-expanded="true"]) .nav-menu {
+  display: flex;
+}
+
+/* 大屏幕(>=768px)：水平导航栏 */
+@media screen and (min-width: 768px) {
+  .menu-button {
+    display: none !important;
+  }
+
+  .nav-menu {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    gap: var(--spacing-xl);
+    animation: none;
+    min-width: auto;
+  }
+
+  .nav-link {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+    background: transparent !important;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    background: transparent;
+    border-bottom-color: var(--color-primary);
+  }
+}
+
+/* 暗黑模式小屏幕菜单样式 */
+@media screen and (max-width: 767px) {
+  html.dark .nav-menu {
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border-primary);
+    box-shadow: var(--shadow-lg);
+  }
+}

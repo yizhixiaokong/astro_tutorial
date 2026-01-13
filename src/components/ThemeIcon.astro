@@ -8,39 +8,14 @@
 </button>
 
 <style>
-  #themeToggle {
-    border: 0;
-    background: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #themeToggle:hover {
-    background-color: rgba(0, 102, 204, 0.1);
-    transform: scale(1.1);
-  }
-
-  #themeToggle:active {
-    transform: scale(0.95);
-  }
-
   .sun { 
-    fill: black;
-    transition: fill 0.3s ease;
+    fill: var(--color-text);
+    transition: fill var(--transition-normal);
   }
   
   .moon { 
     fill: transparent;
-    transition: fill 0.3s ease;
-  }
-
-  :global(html.dark) #themeToggle:hover {
-    background-color: rgba(125, 211, 252, 0.1);
+    transition: fill var(--transition-normal);
   }
 
   :global(.dark) .sun { 
@@ -48,7 +23,7 @@
   }
   
   :global(.dark) .moon { 
-    fill: white; 
+    fill: var(--color-text); 
   }
 </style>
 

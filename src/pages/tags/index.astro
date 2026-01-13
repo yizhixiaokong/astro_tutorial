@@ -29,42 +29,29 @@ const pageTitle = "标签索引";
 
 <style>
   a {
-    color: #00539f;
+    color: var(--color-primary);
   }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--spacing-md);
   }
 
   .tag {
     text-decoration: none;
-    color: #00539f;
+    color: var(--color-primary);
     font-size: 1.1em;
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
   }
 
   .tag:hover {
-    color: #0052a3;
+    color: var(--color-primary-hover);
     text-decoration: underline;
   }
 
   .count {
     font-size: 0.9em;
-    color: #666;
-  }
-
-  :global(html.dark) a,
-  :global(html.dark) .tag {
-    color: #7dd3fc;
-  }
-
-  :global(html.dark) .tag:hover {
-    color: #38bdf8;
-  }
-
-  :global(html.dark) .count {
-    color: #a1a1aa;
+    color: var(--color-text-tertiary);
   }
 </style>

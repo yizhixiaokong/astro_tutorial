@@ -1,0 +1,94 @@
+/* 排版样式 */
+
+h1 {
+  margin: var(--spacing-lg) 0 var(--spacing-sm) 0;
+  font-size: 2.5rem;
+  color: var(--color-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 1.2rem 0 0.4rem 0;
+  font-size: 1.875rem;
+  color: var(--color-heading-2);
+  font-weight: 600;
+}
+
+h3 {
+  margin: var(--spacing-md) 0 0.3rem 0;
+  font-size: 1.25rem;
+  color: var(--color-heading-3);
+  font-weight: 600;
+}
+
+p {
+  margin: 0.8rem 0;
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+/* footer 链接不显示下划线 */
+footer a:hover {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0.8rem 0;
+  padding-left: var(--spacing-lg);
+}
+
+li {
+  margin: 0.4rem 0;
+  color: var(--color-text-secondary);
+}
+
+/* Markdown 内容样式 */
+code {
+  background-color: var(--color-bg-code);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  color: var(--color-primary);
+}
+
+pre {
+  background-color: var(--color-bg-code-block);
+  border: 1px solid var(--color-border-code);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  overflow-x: auto;
+  margin: var(--spacing-md) 0;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding-left: var(--spacing-md);
+  margin-left: 0;
+  color: var(--color-text-tertiary);
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border-primary);
+  margin: var(--spacing-xl) 0;
+}

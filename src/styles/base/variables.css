@@ -1,0 +1,95 @@
+/* CSS 自定义属性（变量） */
+
+:root {
+  /* ========== 颜色系统 - 亮色模式 ========== */
+  /* 主色调 */
+  --color-primary: #0066cc;
+  --color-primary-hover: #0052a3;
+  --color-primary-light: rgba(0, 102, 204, 0.1);
+  
+  /* 文字颜色 */
+  --color-text-primary: #333;
+  --color-text-secondary: #555;
+  --color-text-tertiary: #666;
+  --color-heading: #000;
+  --color-heading-2: #222;
+  --color-heading-3: #444;
+  
+  /* 背景颜色 */
+  --color-bg-primary: #fafafa;
+  --color-bg-secondary: #fff;
+  --color-bg-tertiary: #f0f0f0;
+  --color-bg-code: #f5f5f5;
+  --color-bg-code-block: #f6f8fa;
+  
+  /* 边框颜色 */
+  --color-border-primary: #e5e5e5;
+  --color-border-secondary: #ddd;
+  --color-border-code: #e1e4e8;
+  
+  /* 阴影 */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 2px 12px rgba(0, 0, 0, 0.12);
+  
+  /* ========== 间距系统 ========== */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* ========== 圆角 ========== */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 50%;
+  
+  /* ========== 过渡动画 ========== */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* ========== 字体 ========== */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-family-mono: 'Courier New', monospace;
+  
+  /* ========== 尺寸 ========== */
+  --max-width-content: 80ch;
+  --max-width-narrow: 70ch;
+}
+
+/* 暗黑模式变量覆盖 */
+html.dark {
+  /* 主色调 */
+  --color-primary: #7dd3fc;
+  --color-primary-hover: #38bdf8;
+  --color-primary-light: rgba(125, 211, 252, 0.1);
+  
+  /* 文字颜色 */
+  --color-text-primary: #e4e4e7;
+  --color-text-secondary: #d4d4d8;
+  --color-text-tertiary: #a1a1aa;
+  --color-heading: #fafafa;
+  --color-heading-2: #f4f4f5;
+  --color-heading-3: #e4e4e7;
+  
+  /* 背景颜色 */
+  --color-bg-primary: #0f0f0f;
+  --color-bg-secondary: #18181b;
+  --color-bg-tertiary: #27272a;
+  --color-bg-code: #27272a;
+  --color-bg-code-block: #18181b;
+  
+  /* 边框颜色 */
+  --color-border-primary: #27272a;
+  --color-border-secondary: #3f3f46;
+  --color-border-code: #3f3f46;
+  
+  /* 阴影 */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 2px 12px rgba(0, 0, 0, 0.5);
+}

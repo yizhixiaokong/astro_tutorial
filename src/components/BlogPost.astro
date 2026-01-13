@@ -13,25 +13,17 @@ const { url, title } = Astro.props;
 
 <style>
   li {
-    margin: 0.5rem 0;
+    margin: var(--spacing-sm) 0;
   }
 
   a {
-    color: #0066cc;
+    color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
   }
 
   a:hover {
-    color: #0052a3;
+    color: var(--color-primary-hover);
     text-decoration: underline;
-  }
-
-  :global(html.dark) a {
-    color: #7dd3fc;
-  }
-
-  :global(html.dark) a:hover {
-    color: #38bdf8;
   }
 </style>

@@ -54,7 +54,7 @@ const skillCategories = [
 // 使用更有意义的状态对象，便于演示条件渲染
 const status = {
   openToCollab: true,
-  learningProgress: 0.45, // 小数表示进度（0-1）
+  learningProgress: 1.0, // 小数表示进度（0-1）
 };
 
 const skillColor = "#0066cc";
@@ -65,26 +65,26 @@ const textCase = "none";
 <BaseLayout pageTitle={pageTitle}>
   <style is:global define:vars={{ skillColor, fontWeight, textCase }}>
     h1 {
-      color: #000;
+      color: var(--color-heading);
       font-size: 2.8rem;
       text-align: left;
-      border-bottom: 2px solid #ddd;
+      border-bottom: 2px solid var(--color-border-secondary);
       padding-bottom: 0.8rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: var(--spacing-lg);
     }
     .skill-categories {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin: 1rem 0;
+      gap: var(--spacing-lg);
+      margin: var(--spacing-md) 0;
     }
     .skill-category {
-      background: #fff;
-      border: 1px solid #e5e5e5;
-      border-radius: 8px;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border-primary);
+      border-radius: var(--radius-lg);
       padding: 1.2rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-normal);
     }
     .skill-category h4 {
       margin: 0 0 0.8rem 0;
@@ -92,7 +92,7 @@ const textCase = "none";
       font-size: 1.1rem;
       font-weight: 700;
       border-bottom: 2px solid var(--skillColor);
-      padding-bottom: 0.5rem;
+      padding-bottom: var(--spacing-sm);
     }
     .skill-item {
       margin: 0.6rem 0;
@@ -103,42 +103,16 @@ const textCase = "none";
     }
     .skill-item-name {
       font-weight: 500;
-      color: #333;
+      color: var(--color-text-primary);
     }
     .skill-level {
       display: inline-block;
-      background: #f0f0f0;
-      color: #666;
+      background: var(--color-bg-tertiary);
+      color: var(--color-text-tertiary);
       padding: 0.2rem 0.6rem;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       font-size: 0.85rem;
       font-weight: 500;
-    }
-
-    /* 暗黑模式 */
-    html.dark h1 {
-      color: #fafafa;
-      border-bottom-color: #3f3f46;
-    }
-
-    html.dark .skill-category {
-      background: #18181b;
-      border-color: #27272a;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    html.dark .skill-category h4 {
-      color: #7dd3fc;
-      border-bottom-color: #7dd3fc;
-    }
-
-    html.dark .skill-item-name {
-      color: #e4e4e7;
-    }
-
-    html.dark .skill-level {
-      background: #27272a;
-      color: #a1a1aa;
     }
   </style>
   <h2>关于我与本项目</h2>

@@ -6,14 +6,10 @@ import Social from "./Social.astro";
   footer {
     display: flex;
     gap: 0.8rem;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e5e5e5;
-    transition: border-color 0.3s ease;
-  }
-
-  :global(html.dark) footer {
-    border-top: 1px solid #3f3f46;
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border-primary);
+    transition: border-color var(--transition-normal);
   }
 </style>
 

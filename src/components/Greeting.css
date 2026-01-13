@@ -1,0 +1,60 @@
+.greeting-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.greeting-text {
+  margin: 0;
+  color: var(--color-heading);
+  font-size: 1.3rem;
+  min-width: 200px;
+}
+
+.greeting-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-text);
+  transition: all var(--transition-normal);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.greeting-button:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  transform: rotate(180deg);
+}
+
+.greeting-button:active {
+  transform: rotate(180deg) scale(0.95);
+}
+
+.greeting-button svg {
+  width: 20px;
+  height: 20px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* 暗黑模式 */
+:global(.dark) .greeting-button {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border-primary);
+  color: var(--color-text);
+}
+
+:global(.dark) .greeting-button:hover {
+  background: var(--color-primary);
+  color: white;
+}

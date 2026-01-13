@@ -48,35 +48,26 @@ const { frontmatter } = Astro.props;
 
 <style>
   .tags-container {
-    margin: 1rem 0;
+    margin: var(--spacing-md) 0;
   }
 
   .tag-link {
     display: inline-block;
-    margin-right: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    background-color: #f0f0f0;
-    border-radius: 4px;
+    margin-right: var(--spacing-sm);
+    padding: 0.25rem var(--spacing-sm);
+    background-color: var(--color-bg-tertiary);
+    border-radius: var(--radius-sm);
     font-size: 0.9rem;
     text-decoration: none;
-    color: #0066cc;
-    transition: background-color 0.2s ease;
+    color: var(--color-primary);
+    transition: background-color var(--transition-fast);
   }
 
   .tag-link:hover {
-    background-color: #e0e0e0;
-  }
-
-  :global(html.dark) .tag-link {
-    background-color: #27272a;
-    color: #7dd3fc;
-  }
-
-  :global(html.dark) .tag-link:hover {
-    background-color: #3f3f46;
+    background-color: var(--color-border-primary);
   }
 
   :global(html.dark) figcaption {
-    color: #a1a1aa !important;
+    color: var(--color-text-tertiary) !important;
   }
 </style>
