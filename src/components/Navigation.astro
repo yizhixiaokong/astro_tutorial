@@ -1,10 +1,10 @@
 ---
-
+import { getLink } from '../utils/links';
 ---
 
 <nav class="nav-menu" id="main-menu" aria-label="Main navigation">
-  <a href="/" class="nav-link">首页</a>
-  <a href="/about/" class="nav-link">关于</a>
-  <a href="/blog/" class="nav-link">博客</a>
-  <a href="/tags/" class="nav-link">标签</a>
+  <a href={getLink('/')} class="nav-link">首页</a>
+  <a href={getLink('/about/')} class="nav-link">关于</a>
+  <a href={getLink('/blog/')} class="nav-link">博客</a>
+  <a href={getLink('/tags/')} class="nav-link">标签</a>
 </nav>

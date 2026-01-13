@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import { Image } from "astro:assets";
+import { getTagLink } from "../utils/links";
 const { frontmatter } = Astro.props;
 
 // 格式化时间为 YYYY/MM/DD hh:mm:ss
@@ -50,7 +51,7 @@ const formatDate = (date: Date) => {
       <div class="tags-container">
         <strong>标签：</strong>
         {frontmatter.tags.map((tag: string) => (
-          <a href={`/tags/${tag}/`} class="tag-link">
+          <a href={getTagLink(tag)} class="tag-link">
             {tag}
           </a>
         ))}

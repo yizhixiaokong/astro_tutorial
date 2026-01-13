@@ -16,7 +16,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
-      link: `/posts/${post.id}/`,
+      link: `${context.site}posts/${post.id}/`,
     })),
     author: "小空",
     customData: `

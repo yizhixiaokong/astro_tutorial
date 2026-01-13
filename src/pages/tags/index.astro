@@ -1,8 +1,9 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getTagLink } from "../../utils/links";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const allPosts = await getCollection("blog");
+const allPosts: CollectionEntry<"blog">[] = await getCollection("blog");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 const pageTitle = "标签索引";
 ---
@@ -18,7 +19,7 @@ const pageTitle = "标签索引";
           post.data.tags.includes(tag)
         ).length;
         return (
-          <a href={`/tags/${tag}`} class="tag">
+          <a href={getTagLink(tag)} class="tag">
             {tag} <span class="count">({count})</span>
           </a>
         );

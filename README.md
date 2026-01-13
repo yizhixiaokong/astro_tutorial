@@ -1,5 +1,9 @@
 # Astro 教程项目
 
+## 📍 在线访问
+
+🌐 **[点击访问项目](https://yizhixiaokong.github.io/astro_tutorial/)**
+
 ## 项目说明
 
 本项目是基于 [Astro 官方教程](https://docs.astro.build/zh-cn/tutorial) 创建的基础页面。
@@ -46,6 +50,21 @@ npm run dev
 ```bash
 npm run build
 ```
+
+4. 部署到 GitHub Pages：
+```bash
+git push origin main
+```
+GitHub Actions 会自动构建并部署到 GitHub Pages。
+
+## 部署说明
+
+本项目配置了 GitHub Actions 自动部署工作流（`.github/workflows/deploy.yml`）：
+- 在 `main` 分支有提交时自动触发
+- 自动构建项目
+- 自动部署到 GitHub Pages
+
+访问地址：https://yizhixiaokong.github.io/astro_tutorial/
 
 ## 参考资源
 

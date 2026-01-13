@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+on:
+  # 在 main 分支有 push 时触发
+  push:
+    branches: [main]
+
+  # 允许从 GitHub Actions 工作流中手动触发
+  workflow_dispatch:
+
+# 允许 GitHub Pages 部署
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 只允许一个并发部署
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  BUILD_PATH: '.'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v5
+
+      - name: Install, build, and upload your site
+        uses: withastro/action@v5
+        with:
+          path: ${{ env.BUILD_PATH }}
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

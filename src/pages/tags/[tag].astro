@@ -1,5 +1,6 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getPostLink, getLink } from "../../utils/links";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 
@@ -29,7 +30,7 @@ const { posts } = Astro.props;
     posts.length > 0 ? (
       <ul>
         {posts.map((post) => (
-          <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
+          <BlogPost url={getPostLink(post.id)} title={post.data.title} />
         ))}
       </ul>
     ) : (
@@ -37,6 +38,6 @@ const { posts } = Astro.props;
     )
   }
   <p style="margin-top: 2rem;">
-    <a href="/tags/">← 查看所有标签</a>
+    <a href={getLink('/tags/')}>← 查看所有标签</a>
   </p>
 </BaseLayout>

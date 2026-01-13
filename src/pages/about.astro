@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getPostLink } from "../utils/links";
 
 const pageTitle = "关于";
 
 // 使用 getCollection 获取文章列表
-const allPosts = await getCollection("blog");
+const allPosts: CollectionEntry<"blog">[] = await getCollection("blog");
 const sortedPosts = allPosts.sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
@@ -160,7 +161,7 @@ const textCase = "none";
         <h3>最新文章</h3>
         <ul>
           {recentPosts.map((p) => (
-            <BlogPost url={`/posts/${p.id}/`} title={p.data.title} />
+            <BlogPost url={getPostLink(p.id)} title={p.data.title} />
           ))}
         </ul>
       </div>

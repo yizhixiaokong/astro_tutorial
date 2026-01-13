@@ -1,9 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getPostLink } from "../utils/links";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
 
-const allPosts = await getCollection("blog");
+const allPosts: CollectionEntry<"blog">[] = await getCollection("blog");
 allPosts.sort((a, b) => a.data.pubDate.getTime() - b.data.pubDate.getTime());
 
 const pageTitle = "博客";
@@ -20,7 +21,7 @@ const pageTitle = "博客";
   <ul>
     {
       allPosts.map((post) => (
-        <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
+        <BlogPost url={getPostLink(post.id)} title={post.data.title} />
       ))
     }
   </ul>
