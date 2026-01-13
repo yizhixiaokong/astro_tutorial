@@ -1,8 +1,16 @@
 ---
-const { platform, username } = Astro.props;
+interface Props {
+  url: string;
+  label: string;
+  platform?: string;
+}
+
+const { url, label, platform = label } = Astro.props as Props;
 ---
 
-<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+<a href={url} title={label} target="_blank" rel="noopener noreferrer"
+  >{platform}</a
+>
 
 <style>
   a {

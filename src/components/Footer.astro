@@ -1,5 +1,8 @@
 ---
 import Social from "./Social.astro";
+import { readFileSync } from "fs";
+
+const socialConfig = JSON.parse(readFileSync("config/social.json", "utf-8"));
 ---
 
 <style>
@@ -14,7 +17,9 @@ import Social from "./Social.astro";
 </style>
 
 <footer>
-  <Social platform="twitter" username="astrodotbuild" />
-  <Social platform="github" username="withastro" />
-  <Social platform="youtube" username="astrodotbuild" />
+  {
+    socialConfig.links.map((link) => (
+      <Social url={link.url} label={link.label} platform={link.platform} />
+    ))
+  }
 </footer>
