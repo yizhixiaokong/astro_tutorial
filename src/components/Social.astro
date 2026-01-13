@@ -20,4 +20,14 @@ const { platform, username } = Astro.props;
     border-color: #0066cc;
     background-color: #f5f5f5;
   }
+
+  :global(html.dark) a {
+    color: #7dd3fc;
+    border-color: #52525b;
+  }
+
+  :global(html.dark) a:hover {
+    border-color: #7dd3fc;
+    background-color: rgba(125, 211, 252, 0.1);
+  }
 </style>

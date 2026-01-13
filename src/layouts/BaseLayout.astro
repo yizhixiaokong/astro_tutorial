@@ -12,6 +12,26 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <script is:inline>
+      // 主题初始化 - 必须在head中同步执行以避免闪烁
+      (function() {
+        const getTheme = () => {
+          const stored = localStorage.getItem("theme");
+          if (stored === 'dark' || stored === 'light') {
+            return stored;
+          }
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+        
+        const theme = getTheme();
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme);
+      })();
+    </script>
   </head>
   <body>
     <Header />

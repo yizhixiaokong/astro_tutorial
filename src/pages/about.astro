@@ -84,6 +84,7 @@ const textCase = "none";
       border-radius: 8px;
       padding: 1.2rem;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
     }
     .skill-category h4 {
       margin: 0 0 0.8rem 0;
@@ -112,6 +113,32 @@ const textCase = "none";
       border-radius: 4px;
       font-size: 0.85rem;
       font-weight: 500;
+    }
+
+    /* 暗黑模式 */
+    html.dark h1 {
+      color: #fafafa;
+      border-bottom-color: #3f3f46;
+    }
+
+    html.dark .skill-category {
+      background: #18181b;
+      border-color: #27272a;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    html.dark .skill-category h4 {
+      color: #7dd3fc;
+      border-bottom-color: #7dd3fc;
+    }
+
+    html.dark .skill-item-name {
+      color: #e4e4e7;
+    }
+
+    html.dark .skill-level {
+      background: #27272a;
+      color: #a1a1aa;
     }
   </style>
   <h2>关于我与本项目</h2>

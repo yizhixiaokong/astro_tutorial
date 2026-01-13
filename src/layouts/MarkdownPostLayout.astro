@@ -66,4 +66,17 @@ const { frontmatter } = Astro.props;
   .tag-link:hover {
     background-color: #e0e0e0;
   }
+
+  :global(html.dark) .tag-link {
+    background-color: #27272a;
+    color: #7dd3fc;
+  }
+
+  :global(html.dark) .tag-link:hover {
+    background-color: #3f3f46;
+  }
+
+  :global(html.dark) figcaption {
+    color: #a1a1aa !important;
+  }
 </style>

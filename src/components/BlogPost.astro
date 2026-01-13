@@ -26,4 +26,12 @@ const { url, title } = Astro.props;
     color: #0052a3;
     text-decoration: underline;
   }
+
+  :global(html.dark) a {
+    color: #7dd3fc;
+  }
+
+  :global(html.dark) a:hover {
+    color: #38bdf8;
+  }
 </style>
