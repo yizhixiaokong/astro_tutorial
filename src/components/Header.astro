@@ -2,12 +2,13 @@
 import Menu from "./Menu.astro";
 import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
+import { getLink } from "../utils/links";
 ---
 
 <header id="site-header">
   <nav class="navbar">
     <div class="nav-container">
-      <div class="nav-brand">Kong's Blog</div>
+      <a href={getLink("/")} class="nav-brand">Kong's Blog</a>
       <div class="nav-right">
         <Navigation />
         <div class="nav-actions">
@@ -91,5 +92,13 @@ import ThemeIcon from "./ThemeIcon.astro";
     text-decoration: none;
     margin: 0;
     transition: font-size var(--transition-slow);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 1rem;
+    display: inline-block;
+  }
+
+  .nav-brand:hover {
+    opacity: 0.8;
   }
 </style>
