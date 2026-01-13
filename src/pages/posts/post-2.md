@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: '进阶：静态页面优化与功能完善'
 pubDate: 2026-01-07
 description: '利用变量、条件渲染丰富页面内容，并完善博客系统的基础结构。'
@@ -8,8 +9,6 @@ image:
     alt: '弧线背景下的 Astro 标志'
 tags: ["astro", "变量", "条件渲染"]
 ---
-
-# 进阶：静态页面优化与功能完善
 
 在基础框架搭好后，我进行了多项优化（\`feat(site): 统一 pageTitle 并优化首页/博客/关于页\`）。
 

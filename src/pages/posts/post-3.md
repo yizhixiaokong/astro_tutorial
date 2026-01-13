@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: '未来展望：深度探索 Astro 动态特性'
 pubDate: 2026-01-07
 description: '对目前完成工作的总结，以及对未来学习动态内容、样式优化等内容的期待。'
@@ -8,8 +9,6 @@ image:
     alt: '绚丽光线下的 Astro 标志'
 tags: ["astro", "总结", "展望"]
 ---
-
-# 未来展望：深度探索 Astro 动态特性
 
 目前，我已经由浅入深地完成了项目的基础建设和初步内容填充。
 

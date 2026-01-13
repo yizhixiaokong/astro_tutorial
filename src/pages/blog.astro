@@ -1,39 +1,21 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "博客";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <Header />
+<BaseLayout pageTitle={pageTitle}>
+  <h2>记录学习与项目笔记</h2>
 
-    <h1>{pageTitle}</h1>
-    <h2>记录学习与项目笔记</h2>
+  <p>
+    这里记录与 Astro、前端开发相关的笔记、教程和项目更新，欢迎订阅并留下反馈。
+  </p>
 
-    <p>
-      这里记录与 Astro、前端开发相关的笔记、教程和项目更新，欢迎订阅并留下反馈。
-    </p>
+  <h3>文章列表</h3>
+  <ul>
+    <li><a href="/posts/post-1/">初探 Astro：从模板到基础导航</a></li>
+    <li><a href="/posts/post-2/">进阶：静态页面优化与功能完善</a></li>
+    <li><a href="/posts/post-3/">未来展望：深度探索 Astro 动态特性</a></li>
+  </ul>
 
-    <h3>文章列表</h3>
-    <ul>
-      <li><a href="/posts/post-1/">初探 Astro：从模板到基础导航</a></li>
-      <li><a href="/posts/post-2/">进阶：静态页面优化与功能完善</a></li>
-      <li><a href="/posts/post-3/">未来展望：深度探索 Astro 动态特性</a></li>
-    </ul>
-
-    <p>返回首页或关于页了解更多信息。</p>
-    <Footer />
-    <script>
-      import "../scripts/menu.js";
-    </script>
-  </body>
-</html>
+  <p>返回首页或关于页了解更多信息。</p>
+</BaseLayout>

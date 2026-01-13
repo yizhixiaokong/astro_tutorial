@@ -1,0 +1,47 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  {
+    frontmatter.image && (
+      <figure style="margin: 1.5rem 0;">
+        <img
+          src={frontmatter.image.url}
+          alt={frontmatter.image.alt}
+          style="max-width: 100%; border-radius: 8px;"
+        />
+        {frontmatter.image.alt && (
+          <figcaption style="text-align: center; color: #666; margin-top: 0.5rem;">
+            {frontmatter.image.alt}
+          </figcaption>
+        )}
+      </figure>
+    )
+  }
+  <p><strong>发布时间：</strong>{frontmatter.pubDate.toString().slice(0,10)}</p>
+  <p><strong>作者：</strong>{frontmatter.author}</p>
+  {
+    frontmatter.description && (
+      <p>
+        <strong>描述：</strong>
+        {frontmatter.description}
+      </p>
+    )
+  }
+  {
+    frontmatter.tags && (
+      <div>
+        <strong>标签：</strong>
+        {frontmatter.tags.map((tag: string) => (
+          <span style="display: inline-block; margin-right: 0.5rem; padding: 0.25rem 0.5rem; background: #f0f0f0; border-radius: 4px; font-size: 0.9rem;">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )
+  }
+  <hr style="margin: 1.5rem 0;" />
+  <slot />
+</BaseLayout>

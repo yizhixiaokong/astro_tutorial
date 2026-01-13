@@ -1,7 +1,5 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "关于";
 
 const identity = {
@@ -64,125 +62,110 @@ const fontWeight = "600";
 const textCase = "none";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontWeight, textCase }}>
-      h1 {
-        color: #000;
-        font-size: 2.8rem;
-        text-align: left;
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 0.8rem;
-        margin-bottom: 1.5rem;
-      }
-      .skill-categories {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin: 1rem 0;
-      }
-      .skill-category {
-        background: #fff;
-        border: 1px solid #e5e5e5;
-        border-radius: 8px;
-        padding: 1.2rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      }
-      .skill-category h4 {
-        margin: 0 0 0.8rem 0;
-        color: var(--skillColor);
-        font-size: 1.1rem;
-        font-weight: 700;
-        border-bottom: 2px solid var(--skillColor);
-        padding-bottom: 0.5rem;
-      }
-      .skill-item {
-        margin: 0.6rem 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.4rem 0;
-      }
-      .skill-item-name {
-        font-weight: 500;
-        color: #333;
-      }
-      .skill-level {
-        display: inline-block;
-        background: #f0f0f0;
-        color: #666;
-        padding: 0.2rem 0.6rem;
-        border-radius: 4px;
-        font-size: 0.85rem;
-        font-weight: 500;
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}</h1>
-    <h2>关于我与本项目</h2>
-
-    <p>
-      我是 {identity.firstName}，来自 {identity.country}，职业：{
-        identity.occupation
-      }。本站用于记录我的学习笔记、项目实践与个人想法。
-    </p>
-
-    <h3>技能</h3>
-    <div class="skill-categories">
-      {
-        skillCategories.map((cat) => (
-          <div class="skill-category">
-            <h4>{cat.category}</h4>
-            {cat.skills.map((skill) => (
-              <div class="skill-item">
-                <span class="skill-item-name">{skill.name}</span>
-                <span class="skill-level">{skill.level}</span>
-              </div>
-            ))}
-          </div>
-        ))
-      }
-    </div>
-
-    <h3>兴趣</h3>
-    <p>我的爱好包括：{identity.hobbies.join("、")}。</p>
-
-    {
-      status.openToCollab && (
-        <p>我愿意合作开发小型项目，欢迎通过 GitHub 与我联系讨论合作想法。</p>
-      )
+<BaseLayout pageTitle={pageTitle}>
+  <style is:global define:vars={{ skillColor, fontWeight, textCase }}>
+    h1 {
+      color: #000;
+      font-size: 2.8rem;
+      text-align: left;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.5rem;
     }
+    .skill-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+    .skill-category {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 1.2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    .skill-category h4 {
+      margin: 0 0 0.8rem 0;
+      color: var(--skillColor);
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--skillColor);
+      padding-bottom: 0.5rem;
+    }
+    .skill-item {
+      margin: 0.6rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+    }
+    .skill-item-name {
+      font-weight: 500;
+      color: #333;
+    }
+    .skill-level {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #666;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+  </style>
+  <h2>关于我与本项目</h2>
 
-    <p>当前学习进度：{Math.round(status.learningProgress * 100)}%</p>
+  <p>
+    我是 {identity.firstName}，来自 {identity.country}，职业：{
+      identity.occupation
+    }。本站用于记录我的学习笔记、项目实践与个人想法。
+  </p>
 
+  <h3>技能</h3>
+  <div class="skill-categories">
     {
-      recentPosts.length ? (
-        <div>
-          <h3>最新文章</h3>
-          <ul>
-            {recentPosts.map((p) => (
-              <li>
-                <a href={p.slug}>{p.title}</a>
-              </li>
-            ))}
-          </ul>
+      skillCategories.map((cat) => (
+        <div class="skill-category">
+          <h4>{cat.category}</h4>
+          {cat.skills.map((skill) => (
+            <div class="skill-item">
+              <span class="skill-item-name">{skill.name}</span>
+              <span class="skill-level">{skill.level}</span>
+            </div>
+          ))}
         </div>
-      ) : (
-        <p>尚无文章，敬请期待。</p>
-      )
+      ))
     }
+  </div>
 
-    <p>站点会随着我的学习与项目进展持续更新，欢迎通过 GitHub 与我交流。</p>
-    <Footer />
-    <script>
-      import "../scripts/menu.js";
-    </script>
-  </body>
-</html>
+  <h3>兴趣</h3>
+  <p>我的爱好包括：{identity.hobbies.join("、")}。</p>
+
+  {
+    status.openToCollab && (
+      <p>我愿意合作开发小型项目，欢迎通过 GitHub 与我联系讨论合作想法。</p>
+    )
+  }
+
+  <p>当前学习进度：{Math.round(status.learningProgress * 100)}%</p>
+
+  {
+    recentPosts.length ? (
+      <div>
+        <h3>最新文章</h3>
+        <ul>
+          {recentPosts.map((p) => (
+            <li>
+              <a href={p.slug}>{p.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ) : (
+      <p>尚无文章，敬请期待。</p>
+    )
+  }
+
+  <p>站点会随着我的学习与项目进展持续更新，欢迎通过 GitHub 与我交流。</p>
+</BaseLayout>

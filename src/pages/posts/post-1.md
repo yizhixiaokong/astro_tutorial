@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: '初探 Astro：从模板到基础导航'
 pubDate: 2026-01-07
 description: '记录 Astro 教程的初始设置和基本的页面/导航构建过程。'
@@ -8,8 +9,6 @@ image:
     alt: 'Astro 标志'
 tags: ["astro", "基础", "导航"]
 ---
-
-# 初探 Astro：从模板到基础导航
 
 今天开始了 Astro 的学习之旅。
 
