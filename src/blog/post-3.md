@@ -1,7 +1,6 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: '第三步：深度探索 Astro 动态特性'
-pubDate: 2026-01-07
+pubDate: 2026-01-07T14:00:00Z
 description: '对目前完成工作的总结，以及对未来学习动态内容、样式优化等内容的期待。'
 author: '小空'
 image:

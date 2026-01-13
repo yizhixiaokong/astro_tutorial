@@ -1,16 +1,30 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { Image } from "astro:assets";
 const { frontmatter } = Astro.props;
+
+// 格式化时间为 YYYY/MM/DD hh:mm:ss
+const formatDate = (date: Date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const seconds = String(date.getSeconds()).padStart(2, "0");
+  return `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+};
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
   {
     frontmatter.image && (
       <figure style="margin: 1.5rem 0;">
-        <img
+        <Image
           src={frontmatter.image.url}
           alt={frontmatter.image.alt}
-          style="max-width: 100%; border-radius: 8px;"
+          style="max-width: 100%; border-radius: 8px; height: auto;"
+          width={1200}
+          height={630}
         />
         {frontmatter.image.alt && (
           <figcaption style="text-align: center; color: #666; margin-top: 0.5rem;">
@@ -20,7 +34,8 @@ const { frontmatter } = Astro.props;
       </figure>
     )
   }
-  <p><strong>发布时间：</strong>{frontmatter.pubDate.toString().slice(0,10)}</p>
+
+  <p><strong>发布时间：</strong>{formatDate(frontmatter.pubDate)}</p>
   <p><strong>作者：</strong>{frontmatter.author}</p>
   {
     frontmatter.description && (

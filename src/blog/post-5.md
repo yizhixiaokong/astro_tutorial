@@ -1,7 +1,6 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: '第五步：暗黑模式与主题切换'
-pubDate: 2026-01-13
+pubDate: 2026-01-13T10:30:00Z
 description: '实现现代化的暗黑模式支持，提供用户友好的主题切换功能。'
 author: '小空'
 image:

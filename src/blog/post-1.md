@@ -1,7 +1,6 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: '第一步：从模板到基础导航'
-pubDate: 2026-01-07
+pubDate: 2026-01-07T09:00:00Z
 description: '记录 Astro 教程的初始设置和基本的页面/导航构建过程。'
 author: '小空'
 image:

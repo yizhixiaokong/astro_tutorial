@@ -1,7 +1,6 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: '第四步：布局优化与内容管理'
-pubDate: 2026-01-13
+pubDate: 2026-01-13T09:00:00Z
 description: '通过统一布局管理提升项目可维护性，使用动态加载实现灵活的内容展示。'
 author: '小空'
 image:

@@ -1,7 +1,6 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: '第二步：静态页面优化与功能完善'
-pubDate: 2026-01-07
+pubDate: 2026-01-07T10:30:00Z
 description: '利用变量、条件渲染丰富页面内容，并完善博客系统的基础结构。'
 author: '小空'
 image:

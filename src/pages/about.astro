@@ -1,13 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
+import { getCollection } from "astro:content";
+
 const pageTitle = "关于";
 
-// 动态加载文章列表
-const allPosts = Object.values(
-  import.meta.glob("../pages/posts/*.md", { eager: true })
+// 使用 getCollection 获取文章列表
+const allPosts = await getCollection("blog");
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
-const recentPosts = [...allPosts].reverse().slice(0, 3); // 取最近的3篇（倒序）
+const recentPosts = sortedPosts.slice(0, 3); // 取最近的3篇
 
 const identity = {
   firstName: "小空",
@@ -156,8 +159,8 @@ const textCase = "none";
       <div>
         <h3>最新文章</h3>
         <ul>
-          {recentPosts.map((p: any) => (
-            <BlogPost url={p.url} title={p.frontmatter.title} />
+          {recentPosts.map((p) => (
+            <BlogPost url={`/posts/${p.id}/`} title={p.data.title} />
           ))}
         </ul>
       </div>

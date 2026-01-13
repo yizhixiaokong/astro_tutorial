@@ -1,9 +1,11 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
-const allPosts = Object.values(
-  import.meta.glob("./posts/*.md", { eager: true })
-);
+
+const allPosts = await getCollection("blog");
+allPosts.sort((a, b) => a.data.pubDate.getTime() - b.data.pubDate.getTime());
+
 const pageTitle = "博客";
 ---
 
@@ -17,8 +19,8 @@ const pageTitle = "博客";
   <h3>文章列表</h3>
   <ul>
     {
-      allPosts.map((post: any) => (
-        <BlogPost url={post.url} title={post.frontmatter.title} />
+      allPosts.map((post) => (
+        <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
       ))
     }
   </ul>
