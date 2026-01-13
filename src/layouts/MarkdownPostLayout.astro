@@ -32,12 +32,12 @@ const { frontmatter } = Astro.props;
   }
   {
     frontmatter.tags && (
-      <div>
+      <div class="tags-container">
         <strong>标签：</strong>
         {frontmatter.tags.map((tag: string) => (
-          <span style="display: inline-block; margin-right: 0.5rem; padding: 0.25rem 0.5rem; background: #f0f0f0; border-radius: 4px; font-size: 0.9rem;">
+          <a href={`/tags/${tag}/`} class="tag-link">
             {tag}
-          </span>
+          </a>
         ))}
       </div>
     )
@@ -45,3 +45,25 @@ const { frontmatter } = Astro.props;
   <hr style="margin: 1.5rem 0;" />
   <slot />
 </BaseLayout>
+
+<style>
+  .tags-container {
+    margin: 1rem 0;
+  }
+
+  .tag-link {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #0066cc;
+    transition: background-color 0.2s ease;
+  }
+
+  .tag-link:hover {
+    background-color: #e0e0e0;
+  }
+</style>
